@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus Radio FM - En Vivo</title>
+  <!-- Fuente Google Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- FontAwesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Hoja de estilos vinculada -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navegación superior -->
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-white">RADIO</span><span class="logo-red">NEXUS</span>
+    </div>
+    
+    <nav class="nav-links">
+      <a href="#" class="active">HOME</a>
+      <a href="#">SHOWS</a>
+      <a href="#">EVENTS</a>
+      <a href="#">PODCAST</a>
+      <a href="#">CHARTS</a>
+      <a href="#">DJS</a>
+    </nav>
+
+    <div class="header-right">
+      <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+      <button class="popup-btn" id="btnPopup">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i> POPUP
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Principal con Fondo Nocturno -->
+  <main class="hero-container">
+    <div class="hero-content">
+      
+      <!-- Badge En Vivo -->
+      <div class="live-status">
+        <span class="pulsing-dot"></span>
+        <span>NOW LIVE</span>
+      </div>
+
+      <!-- Nombre central -->
+      <h1 class="main-station-title">
+        RADIO<span class="highlight-red">NEXUS</span>
+      </h1>
+
+      <!-- Botón de Play Central con Halo Resplandeciente -->
+      <div class="center-player-wrapper">
+        <div class="glow-ring" id="glowRing"></div>
+        <button class="main-play-btn" id="mainPlayBtn" aria-label="Reproducir transmisión">
+          <i class="fa-solid fa-play" id="mainPlayIcon"></i>
+        </button>
+      </div>
+
+      <!-- 3 Tarjetas Flotantes Estilo Pro Radio -->
+      <section class="cards-grid">
+        
+        <!-- Tarjeta 1: Now On Air -->
+        <article class="radio-card">
+          <div class="card-tag">NOW ON AIR</div>
+          <div class="card-body">
+            <div class="card-avatar">
+              <i class="fa-solid fa-user-astronaut"></i>
+            </div>
+            <div class="card-info">
+              <h3>Nexus Hits</h3>
+              <p>Sesión en vivo con el DJ</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tarjeta 2: Coming Next -->
+        <article class="radio-card">
+          <div class="card-tag">COMING NEXT</div>
+          <div class="card-body">
+            <div class="card-avatar secondary">
+              <i class="fa-solid fa-compact-disc"></i>
+            </div>
+            <div class="card-info">
+              <h3>Urban Sessions</h3>
+              <p>Programación especial</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tarjeta 3: Music Info -->
+        <article class="radio-card">
+          <div class="card-tag">MUSIC</div>
+          <div class="card-body">
+            <div class="card-avatar music">
+              <i class="fa-solid fa-music"></i>
+            </div>
+            <div class="card-info">
+              <h3 id="cardTrackTitle">Transmisión Online</h3>
+              <p id="cardTrackArtist">Nexus Radio FM</p>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- Barra Inferior Fija (Sticky Player Bar) -->
+  <footer class="bottom-player-bar">
+    <div class="bar-left">
+      <button class="bottom-play-btn" id="bottomPlayBtn">
+        <i class="fa-solid fa-play" id="bottomPlayIcon"></i>
+      </button>
+      <div class="track-meta">
+        <span class="track-name">Nexus Radio FM</span>
+        <span class="track-sub" id="streamStatus">Listo para reproducir</span>
+      </div>
+    </div>
+
+    <div class="bar-right">
+      <button class="mute-btn" id="muteBtn" aria-label="Silenciar">
+        <i class="fa-solid fa-volume-high" id="volumeIcon"></i>
+      </button>
+      <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.9">
+    </div>
+  </footer>
+
+  <!-- Etiqueta oculta de audio conectada a tu stream -->
+  <audio id="radioStream" preload="none">
+    <source src="https://radios.yanapak.org/nexusradio" type="audio/mpeg">
+    Tu navegador no soporta streaming de audio.
+  </audio>
+
+  <!-- Script vinculado -->
+  <script src="script.js"></script>
+</body>
+</html>
